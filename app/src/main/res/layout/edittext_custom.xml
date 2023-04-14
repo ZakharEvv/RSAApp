@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/edit_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        >
+
+        <LinearLayout
+            android:id="@+id/edit_text_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bkg_edit_text"
+            android:orientation="horizontal">
+
+            <com.example.rsaproj.ui.controls.CustomAppCompatEditText
+                android:id="@+id/edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bkg_rect_rounded_8"
+                android:backgroundTint="@color/transparent"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:paddingVertical="14dp"
+                android:paddingStart="20dp"
+                android:scrollHorizontally="true"
+                android:textColorHint="@color/text_primary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/edit_text_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="14dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/text_primary"
+                tools:text="BTC" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/edit_text_error_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="6dp"
+        android:textColor="@color/red"
+        tools:text="Errror error error error error error error error" />
+
+</LinearLayout>

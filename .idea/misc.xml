@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.5" />
+        <entry key="..\:/Users/Zuevz/Downloads/RSAProj 2/RSAProj/app/src/main/res/drawable/button_edit_text.xml" value="0.2703125" />
+        <entry key="..\:/Users/Zuevz/Downloads/RSAProj 2/RSAProj/app/src/main/res/drawable/button_green.xml" value="0.2703125" />
+        <entry key="..\:/Users/Zuevz/Downloads/RSAProj 2/RSAProj/app/src/main/res/drawable/cardview_clickable_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/Zuevz/Downloads/RSAProj 2/RSAProj/app/src/main/res/drawable/ic_divider.xml" value="0.2703125" />
+        <entry key="..\:/Users/Zuevz/Downloads/RSAProj 2/RSAProj/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Zuevz/Downloads/RSAProj 2/RSAProj/app/src/main/res/layout/edittext_custom.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Zuevz/Downloads/RSAProj 2/RSAProj/app/src/main/res/layout/fragment_encrypt_decrypt.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable/bkg_edit_text.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/drawable/bkg_rect_rounded_8.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/drawable/bkg_segmented_default.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/drawable/button_edit_text.xml" value="0.1388888888888889" />
+        <entry key="app/src/main/res/drawable/button_green.xml" value="0.11296296296296296" />
+        <entry key="app/src/main/res/drawable/cardview_clickable_foreground.xml" value="0.1388888888888889" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1259259259259259" />
+        <entry key="app/src/main/res/drawable/ic_paste.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3800382254743989" />
+        <entry key="app/src/main/res/layout/activity_main_deprecated.xml" value="0.38871794871794874" />
+        <entry key="app/src/main/res/layout/edittext_custom.xml" value="0.39479166666666665" />
+        <entry key="app/src/main/res/layout/fragment_encrypt_decrypt.xml" value="0.33708863879974527" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--SEGMENTED CONTROL-->
+    <dimen name="spacing_internal">8dp</dimen>
+    <dimen name="spacing_internal_half">4dp</dimen>
+    <dimen name="spacing_internal_medium">6dp</dimen>
+    <dimen name="spacing_internal_small">2dp</dimen>
+    <dimen name="radius_medium_small">10dp</dimen>
+    <dimen name="radius_extra_small">8dp</dimen>
+    <dimen name="segmented_control_inset">2dp</dimen>
+
+    <!--INPUT LAYOUT-->
+    <dimen name="input_layout_button_pair_width">44dp</dimen>
+    <dimen name="input_layout_button_single_width">52dp</dimen>
+    <dimen name="input_layout_button_margin">4dp</dimen>
+    <dimen name="input_layout_selector_margin">15dp</dimen>
+
+</resources>

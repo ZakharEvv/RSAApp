@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bkg_grey">#F6F6F6</color>
+    <color name="bkg_grey_dark">#EAEAEA</color>
+
+    <color name="text_primary">#232323</color>
+    <color name="text_secondary">#7A818E</color>
+
+    <color name="green">#FF1E7052</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="red">#EE7D8B</color>
+    <color name="red_10">#10EE7D8B</color>
+
+</resources>

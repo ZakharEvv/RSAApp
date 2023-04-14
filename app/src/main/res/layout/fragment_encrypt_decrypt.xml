@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stateListAnimator="@null"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <FrameLayout
+                    android:id="@+id/logo_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="0dp"
+                        android:src="@drawable/ic_logo" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/logo_container"
+                    android:text="@string/app_name"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="28sp" />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginHorizontal="14dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <com.example.rsaproj.ui.controls.SegmentedControlGroup
+                android:id="@+id/selector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:customSliderColor="@color/white"
+                style="@style/Theme.RSAProj.SegmentedControl"
+                >
+
+                <com.example.rsaproj.ui.controls.SegmentedControlButton
+                    android:id="@+id/selector_send"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Send"
+                    style="@style/Theme.RSAProj.SegmentedControlButton"
+                    />
+
+                <com.example.rsaproj.ui.controls.SegmentedControlButton
+                    android:id="@+id/selector_receive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Receive"
+                    style="@style/Theme.RSAProj.SegmentedControlButton"
+                    />
+
+            </com.example.rsaproj.ui.controls.SegmentedControlGroup>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <!--SEND BLOCK-->
+            <LinearLayout
+                android:id="@+id/send_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp"
+                    android:background="@drawable/bkg_edit_text">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.example.rsaproj.ui.controls.CustomInputLayoutButton
+                            android:id="@+id/input_text_to_encrypt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:button_src="@drawable/ic_paste"
+                            app:hint="Text to encrypt"
+                            />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="6dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/text_secondary"
+                            android:text="Will be encrypted with recipient's public key"/>
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.example.rsaproj.ui.controls.CustomInputLayoutButton
+                            android:id="@+id/input_text_public_key"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:button_src="@drawable/ic_paste"
+                            app:hint="Public key"
+                            />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="6dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/text_secondary"
+                            android:text="Public key of a recipient"/>
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <Button
+                        android:id="@+id/button_encrypt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Theme.RSAProj.Button.Green"
+                        android:text="Encrypt"/>
+
+                </LinearLayout>
+
+
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <LinearLayout
+                    android:id="@+id/result_encrypted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_divider"/>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bkg_edit_text"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Encrypted message"
+                            android:textSize="16sp"
+                            />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"/>
+
+                        <TextView
+                            android:id="@+id/text_result_encrypted"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_secondary"
+                            android:textStyle="italic"
+                            android:text="Result"
+                            />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"/>
+
+                        <Button
+                            android:id="@+id/button_copy_encrypted"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Theme.RSAProj.Button.Green"
+                            android:text="Copy"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--RECEIVE BLOCK-->
+            <LinearLayout
+                android:id="@+id/receive_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bkg_edit_text"
+                    android:padding="14dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_toStartOf="@+id/button_copy_public"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="14dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your public key"
+                            android:textStyle="bold"
+                            />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_secondary"
+                            android:text="Share it to receive encrypted messages"
+                            />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/button_copy_public"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        style="@style/Theme.RSAProj.Button.Green"
+                        android:text="Copy"
+                        />
+
+                </RelativeLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bkg_edit_text"
+                    android:padding="14dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.example.rsaproj.ui.controls.CustomInputLayoutButton
+                            android:id="@+id/input_text_to_decrypt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:button_src="@drawable/ic_paste"
+                            app:hint="Encrypted text"
+                            />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="6dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/text_secondary"
+                            android:text="Will be decrypted with your private key"/>
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <Button
+                        android:id="@+id/button_decrypt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Theme.RSAProj.Button.Green"
+                        android:text="Decrypt"/>
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <LinearLayout
+                    android:id="@+id/result_decrypted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_divider"/>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bkg_edit_text"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Decrypted message"
+                            android:textSize="16sp"
+                            />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"/>
+
+                        <TextView
+                            android:id="@+id/text_result_decrypted"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_secondary"
+                            android:textStyle="italic"
+                            android:text="Result"
+                            />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"/>
+
+                        <Button
+                            android:id="@+id/button_copy_decrypted"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Theme.RSAProj.Button.Green"
+                            android:text="Copy"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
