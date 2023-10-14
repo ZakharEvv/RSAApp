@@ -9,6 +9,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.graphics.RectF
+import android.os.Build
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -20,7 +21,7 @@ import com.example.rsaproj.utils.compatDrawable
 import java.lang.IllegalArgumentException
 
 class SegmentedControlGroup @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private var selectedButtonIndex = 0
@@ -73,18 +74,19 @@ class SegmentedControlGroup @JvmOverloads constructor(
     init {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(
-                    it, R.styleable.SegmentedControlGroup, 0, 0)
+                it, R.styleable.SegmentedControlGroup, 0, 0
+            )
             sliderColor = typedArray.getColor(
-                    R.styleable.SegmentedControlGroup_customSliderColor,
-                    context.compatColor(R.color.white)
+                R.styleable.SegmentedControlGroup_customSliderColor,
+                context.compatColor(R.color.white)
             )
             dividerColor = typedArray.getColor(
-                    R.styleable.SegmentedControlGroup_customDividerColor,
-                    context.compatColor(R.color.white)
+                R.styleable.SegmentedControlGroup_customDividerColor,
+                context.compatColor(R.color.white)
             )
             shadowColor = typedArray.getColor(
-                    R.styleable.SegmentedControlGroup_customShadowColor,
-                    context.compatColor(android.R.color.black)
+                R.styleable.SegmentedControlGroup_customShadowColor,
+                context.compatColor(android.R.color.black)
             )
             typedArray.recycle()
         }
@@ -147,13 +149,14 @@ class SegmentedControlGroup @JvmOverloads constructor(
             MotionEvent.ACTION_MOVE -> {
                 if (isSliderTouched) {
                     parent.requestDisallowInterceptTouchEvent(true)
-                    val currentPointerPosX = event.findPointerIndex(activePointerId).let { pointerIndex ->
-                        try {
-                            event.getX(pointerIndex)
-                        } catch (e: IllegalArgumentException) {
-                            lastTouchX
+                    val currentPointerPosX =
+                        event.findPointerIndex(activePointerId).let { pointerIndex ->
+                            try {
+                                event.getX(pointerIndex)
+                            } catch (e: IllegalArgumentException) {
+                                lastTouchX
+                            }
                         }
-                    }
                     lastTouchX = currentPointerPosX
                     dragSlider(currentPointerPosX)
                 }
@@ -223,9 +226,9 @@ class SegmentedControlGroup @JvmOverloads constructor(
     }
 
     private fun animateButtonMovement(
-            newPositionIndex: Int,
-            onAnimationEndCallback: (() -> Unit)? = null,
-            isDragging: Boolean = false
+        newPositionIndex: Int,
+        onAnimationEndCallback: (() -> Unit)? = null,
+        isDragging: Boolean = false
     ) {
         if (newPositionIndex == selectedButtonIndex) {
             return
@@ -251,18 +254,19 @@ class SegmentedControlGroup @JvmOverloads constructor(
                 invalidate()
             }
 
-            addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
-                    selectedButtonIndex = newPositionIndex
-                    cancelledPosition = null
-                    onAnimationEndCallback?.invoke()
-                }
+            addListener(
+                object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator?) {
+                        selectedButtonIndex = newPositionIndex
+                        cancelledPosition = null
+                        onAnimationEndCallback?.invoke()
+                    }
 
-                override fun onAnimationCancel(animation: Animator?) {
-                    super.onAnimationCancel(animation)
-                    cancelledPosition = sliderPosition
-                }
-            })
+                    override fun onAnimationCancel(animation: Animator?) {
+                        super.onAnimationCancel(animation)
+                        cancelledPosition = sliderPosition
+                    }
+                })
         }
         animator?.start()
     }
@@ -309,10 +313,11 @@ class SegmentedControlGroup @JvmOverloads constructor(
             val lineTranslationX = buttonWidth * i.toFloat()
             if (lineTranslationX < sliderPosition || lineTranslationX > sliderPosition + buttonWidth) {
                 canvas?.drawLine(
-                        lineTranslationX,
-                        dividerMargin.toFloat(),
-                        lineTranslationX,
-                        height.toFloat() - dividerMargin.toFloat(), dividerPaint)
+                    lineTranslationX,
+                    dividerMargin.toFloat(),
+                    lineTranslationX,
+                    height.toFloat() - dividerMargin.toFloat(), dividerPaint
+                )
             }
         }
     }
@@ -333,13 +338,14 @@ class SegmentedControlGroup @JvmOverloads constructor(
             bottom = height.toFloat() - 2 * inset
         }
         canvas?.drawRoundRect(
-                sliderShadowRect,
-                sliderRadius,
-                sliderRadius,
-                if (onLeft) {
-                    sliderShadowPaintLeft
-                } else {
-                    sliderShadowPaintRight
-                })
+            sliderShadowRect,
+            sliderRadius,
+            sliderRadius,
+            if (onLeft) {
+                sliderShadowPaintLeft
+            } else {
+                sliderShadowPaintRight
+            }
+        )
     }
 }

@@ -6,7 +6,6 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.rsaproj.R
 
-@Suppress("deprecation")
 class SegmentedControlButton @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
